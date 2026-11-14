@@ -116,6 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function atualizarCorContador(campo, contador, minimo, maximo) {
         if (!campo || !contador) return;
         const tamanho = obterTamanhoNormalizado(campo.value);
+        contador.textContent = `${tamanho} / ${maximo} (mín. ${minimo})`;
 
         if (tamanho > maximo || (tamanho > 0 && tamanho < minimo)) {
             contador.style.color = "#ef4444";
