@@ -99,6 +99,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const containerAssunto = document.querySelector("#container-assunto");
     const campoAssunto = document.querySelector("#contato-assunto");
     const campoMensagem = document.querySelector("#contato-mensagem");
+    const contadorNome = document.querySelector("#contador-nome");
+    const contadorAssunto = document.querySelector("#contador-assunto");
     const contadorMensagem = document.querySelector("#contador-mensagem");
     const resumoErros = document.querySelector("#resumo-erros");
     const statusContato = document.querySelector("#contato-status");
@@ -111,16 +113,35 @@ document.addEventListener("DOMContentLoaded", () => {
         return (valor || "").trim().length;
     }
 
-    function atualizarContadorMensagem() {
-        if (!campoMensagem || !contadorMensagem) return;
-        const tamanho = obterTamanhoNormalizado(campoMensagem.value);
-        contadorMensagem.textContent = `${tamanho} / 1000`;
+    function atualizarCorContador(campo, contador, minimo, maximo) {
+        if (!campo || !contador) return;
+        const tamanho = obterTamanhoNormalizado(campo.value);
 
-        if (tamanho > 1000 || (tamanho > 0 && tamanho < 30)) {
-            contadorMensagem.style.color = "#ef4444";
+        if (tamanho > maximo || (tamanho > 0 && tamanho < minimo)) {
+            contador.style.color = "#ef4444";
         } else {
-            contadorMensagem.style.color = "var(--text-muted)";
+            contador.style.color = "var(--text-muted)";
         }
+    }
+
+    function atualizarContadorNome() {
+        atualizarCorContador(campoNome, contadorNome, 3, 80);
+    }
+
+    function atualizarContadorAssunto() {
+        atualizarCorContador(campoAssunto, contadorAssunto, 5, 100);
+    }
+
+    function atualizarContadorMensagem() {
+        atualizarCorContador(campoMensagem, contadorMensagem, 30, 1000);
+    }
+
+    if (campoNome) {
+        campoNome.addEventListener("input", atualizarContadorNome);
+    }
+
+    if (campoAssunto) {
+        campoAssunto.addEventListener("input", atualizarContadorAssunto);
     }
 
     if (campoMensagem) {
@@ -141,6 +162,7 @@ document.addEventListener("DOMContentLoaded", () => {
             campoAssunto.removeAttribute("required");
             limparErroCampo(campoAssunto);
             campoAssunto.value = "";
+            atualizarContadorAssunto();
         }
     }
 
@@ -180,7 +202,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         } else if (id === "contato-mensagem") {
             if (tam === 0) mensagemErro = "Obrigatório.";
-            else if (tam < 30 || tam > 1000) mensagemErro = `Mín. 30 caracteres (${tam}/30).`;
+            else if (tam < 30) mensagemErro = `Mín. 30 caracteres (${tam}/30).`;
+            else if (tam > 1000) mensagemErro = `Máx. 1000 caracteres (${tam}/1000).`;
         }
 
         if (mensagemErro) {
@@ -239,6 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
         iniciarEstadoProcessamento(true);
 
         const dadosForm = new FormData(formContato);
+        if (campoMotivo.value !== "Outro") dadosForm.delete("assunto");
 
         try {
             const resposta = await fetch(formContato.action, {
@@ -251,6 +275,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 exibirStatusContato("Enviado com sucesso!", "sucesso");
                 formContato.reset();
                 atualizarRegraCondicional();
+                atualizarContadorNome();
+                atualizarContadorAssunto();
                 atualizarContadorMensagem();
                 formEnviadoUmaVez = false;
             } else {
@@ -285,5 +311,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     atualizarRegraCondicional();
+    atualizarContadorNome();
+    atualizarContadorAssunto();
     atualizarContadorMensagem();
 });
