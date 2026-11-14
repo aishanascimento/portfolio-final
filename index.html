@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aisha Ximena | Portfólio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.0.3/src/regular/style.css">
+</head>
+<body>
+
+    <div class="bolhas-fundo">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <nav class="navbar">
+        <a href="#" class="logo">Início</a>
+        <div class="nav-links">
+            <a href="#sobre">Sobre</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#habilidades">Habilidades</a>
+            <a href="#contato">Contato</a>
+        </div>
+        <button id="tema" class="btn-tema" aria-label="Alternar Tema" aria-pressed="false"><i class="ph ph-moon"></i></button>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-foto-container">
+            <div class="anel-pulsante"></div>
+            <img src="minhafoto.jpg" alt="Aisha Ximena" class="foto-perfil">
+        </div>
+        <p class="saudacao">Olá, eu sou a</p>
+        <h1 class="nome-gradiente">Aisha Ximena</h1>
+        <div class="maquina-escrever">
+            <p>Estudante de Engenharia de Software & Técnica em Desenvolvimento de Sistemas</p>
+        </div>
+        <div class="hero-botoes">
+            <a href="#projetos" class="botao-glow">Ver Projetos <i class="ph ph-arrow-down"></i></a>
+            <ul class="redes-sociais-hero">
+                <li><a href="https://github.com/aishanascimento" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a></li>
+                <li><a href="https://www.linkedin.com/in/aisha-ximena-santiago-nascimento-8756a5304/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="sobre" class="secao animar-scroll">
+        <div class="secao-cabecalho">
+            <h2><i class="ph ph-user"></i> Sobre Mim</h2>
+            <div class="linha-decorativa"></div>
+        </div>
+        <div class="sobre-conteudo">
+            <p>Estudante de Engenharia de Software na Universidade Católica do Salvador (UCSal), com formação técnica em Desenvolvimento de Sistemas pelo SENAI Bahia e qualificação pelo curso Profissional Digital. Busco atuar na criação de softwares e aplicações eficientes, unindo minha bagagem acadêmica e prática ao desenvolvimento de sistemas robustos.</p>
+        </div>
+    </section>
+
+    <section id="projetos" class="secao animar-scroll">
+        <div class="secao-cabecalho">
+            <h2><i class="ph ph-code"></i> Projetos em Destaque</h2>
+            <div class="linha-decorativa"></div>
+        </div>
+
+        <div class="painel-controle">
+            <div class="filtro-container">
+                <select id="filtro" aria-label="Filtrar projetos">
+                    <option value="todos">Todos os Projetos</option>
+                    <option value="java">Java / POO</option>
+                    <option value="web">Front-End / Web</option>
+                </select>
+            </div>
+            <div class="contador-texto" id="contador">Exibindo projetos.</div>
+        </div>
+
+        <div class="cards" id="lista-projetos">
+            <div class="card projeto" data-categoria="web">
+                <div class="card-borda-glow"></div>
+                <div class="card-conteudo">
+                    <div class="card-header">
+                        <h3>Portfólio Pessoal</h3>
+                        <span class="badge web">Web / Front-End</span>
+                    </div>
+                    <p class="projeto-resumo">Site de portfólio pessoal responsivo desenvolvido com HTML5, CSS3 e JavaScript, apresentando modo escuro (dark mode), animações fluidas e design moderno.</p>
+                    <div class="card-acoes">
+                        <a href="#" target="_blank" class="botao-link">Repositório <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card projeto" data-categoria="java">
+                <div class="card-borda-glow"></div>
+                <div class="card-conteudo">
+                    <div class="card-header">
+                        <h3>Sistema de Controle de Estoque</h3>
+                        <span class="badge java">Java</span>
+                    </div>
+                    <p class="projeto-resumo">Aplicação orientada a objetos desenvolvida em Java, com encapsulamento, construtores, validação de fluxo de vendas e menu interativo via terminal.</p>
+                    <div class="card-acoes">
+                        <a href="https://github.com/aishanascimento/sistema-controle-estoque-java" target="_blank" class="botao-link">Repositório <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card projeto" data-categoria="java">
+                <div class="card-borda-glow"></div>
+                <div class="card-conteudo">
+                    <div class="card-header">
+                        <h3>Sistema de Cotas de Impressão</h3>
+                        <span class="badge java">Java</span>
+                    </div>
+                    <p class="projeto-resumo">Gestão de créditos escolares aplicando sobrecarga de métodos, atributos estáticos (static) para controle global e imutabilidade de dados.</p>
+                    <div class="card-acoes">
+                        <a href="https://github.com/aishanascimento/sistema-cotas-impressao-java" target="_blank" class="botao-link">Repositório <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card projeto" data-categoria="java">
+                <div class="card-borda-glow"></div>
+                <div class="card-conteudo">
+                    <div class="card-header">
+                        <h3>Sistema de Gestão de Cinema</h3>
+                        <span class="badge java">Java</span>
+                    </div>
+                    <p class="projeto-resumo">Controle de sessões, reservas de assentos e gerenciamento de ingressos aplicando os pilares da POO.</p>
+                    <div class="card-acoes">
+                        <a href="https://github.com/aishanascimento/sistema-gestao-cinema-java" target="_blank" class="botao-link">Repositório <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card projeto" data-categoria="java">
+                <div class="card-borda-glow"></div>
+                <div class="card-conteudo">
+                    <div class="card-header">
+                        <h3>Controle de TVs</h3>
+                        <span class="badge java">Java</span>
+                    </div>
+                    <p class="projeto-resumo">Simulação de controle remoto e estados de dispositivos eletrônicos orientados a objetos.</p>
+                    <div class="card-acoes">
+                        <a href="https://github.com/aishanascimento/sistema-controle-tvs-java" target="_blank" class="botao-link">Repositório <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card projeto" data-categoria="java">
+                <div class="card-borda-glow"></div>
+                <div class="card-conteudo">
+                    <div class="card-header">
+                        <h3>Logística iExpress</h3>
+                        <span class="badge java">Java</span>
+                    </div>
+                    <p class="projeto-resumo">Sistema de gerenciamento e rastreio de entregas e rotas logísticas via terminal em Java.</p>
+                    <div class="card-acoes">
+                        <a href="https://github.com/aishanascimento/logistica-iexpress-java" target="_blank" class="botao-link">Repositório <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card projeto" data-categoria="java">
+                <div class="card-borda-glow"></div>
+                <div class="card-conteudo">
+                    <div class="card-header">
+                        <h3>Conta Bancária</h3>
+                        <span class="badge java">Java</span>
+                    </div>
+                    <p class="projeto-resumo">Aplicação bancária simulando operações de depósito, saque, transferência e validação de saldos.</p>
+                    <div class="card-acoes">
+                        <a href="https://github.com/aishanascimento/sistema-conta-bancaria-java-" target="_blank" class="botao-link">Repositório <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="habilidades" class="secao animar-scroll">
+        <div class="secao-cabecalho">
+            <h2><i class="ph ph-cpu"></i> Habilidades e Competências</h2>
+            <div class="linha-decorativa"></div>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Linguagens</h3>
+                <ul>
+                    <li>Java (Principal)</li>
+                    <li>Python</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Desenvolvimento Web</h3>
+                <ul>
+                    <li>HTML, CSS, JavaScript (Iniciante / Intermediário)</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Conceitos</h3>
+                <ul>
+                    <li>POO (Programação Orientada a Objetos)</li>
+                    <li>Clean Code & Lógica</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Ferramentas</h3>
+                <ul>
+                    <li>GitHub, Eclipse IDE, VS Code</li>
+                    <li>Pacote Office / Google Workspace</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="secao animar-scroll">
+        <div class="secao-cabecalho">
+            <h2><i class="ph ph-envelope"></i> Contato</h2>
+            <div class="linha-decorativa"></div>
+        </div>
+        <div class="contato-container">
+            <div class="info-contato">
+                <h3>Vamos conversar?</h3>
+                <p>Entre em contato comigo através das minhas redes ou envie uma mensagem diretamente pelo formulário:</p>
+                <div class="email-destaque">
+                    <i class="ph ph-envelope-simple"></i> <span>aishasantiagonascimento@gmail.com</span>
+                </div>
+                <div class="contact-links">
+                    <a href="https://github.com/aishanascimento" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/aisha-ximena-santiago-nascimento-8756a5304/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                </div>
+            </div>
+            <form id="form-contato" class="form-moderno" action="https://formspree.io/f/seu-codigo" method="POST">
+                <div class="resumo-erros" id="resumo-erros" hidden>Corrija os campos destacados.</div>
+                <div class="campos-linha">
+                    <div>
+                        <label for="contato-nome">Seu Nome</label>
+                        <input type="text" id="contato-nome" name="nome" placeholder="Ex: Maria Silva">
+                        <span class="mensagem-erro" id="erro-nome"></span>
+                    </div>
+                    <div>
+                        <label for="contato-email">Seu E-mail</label>
+                        <input type="email" id="contato-email" name="email" placeholder="exemplo@email.com">
+                        <span class="mensagem-erro" id="erro-email"></span>
+                    </div>
+                </div>
+                <div class="campos-linha">
+                    <div>
+                        <label for="contato-motivo">Motivo do Contato</label>
+                        <select id="contato-motivo" name="motivo">
+                            <option value="">Selecione...</option>
+                            <option value="Estágio">Oportunidade de Estágio</option>
+                            <option value="Dúvida">Dúvida sobre projeto</option>
+                            <option value="Outro">Outro assunto</option>
+                        </select>
+                        <span class="mensagem-erro" id="erro-motivo"></span>
+                    </div>
+                    <div id="container-assunto" hidden>
+                        <label for="contato-assunto">Assunto</label>
+                        <input type="text" id="contato-assunto" name="assunto" placeholder="Qual o assunto?">
+                        <span class="mensagem-erro" id="erro-assunto"></span>
+                    </div>
+                </div>
+                <div>
+                    <label for="contato-mensagem">Mensagem</label>
+                    <textarea id="contato-mensagem" name="mensagem" rows="4" placeholder="Escreva sua mensagem aqui..."></textarea>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 5px;">
+                        <span class="mensagem-erro" id="erro-mensagem"></span>
+                        <span class="contador-texto" id="contador-mensagem">0 / 1000</span>
+                    </div>
+                </div>
+                <button type="submit" id="btn-enviar-contato" class="botao-glow full-width">
+                    Enviar Mensagem <i class="ph ph-paper-plane-right"></i>
+                </button>
+                <span id="contato-status" style="text-align: center; font-weight: 600;"></span>
+            </form>
+        </div>
+    </section>
+
+    <footer class="rodape">
+        <p class="brand">Aisha Ximena</p>
+        <p>© 2026 Aisha Ximena Santiago Nascimento. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
