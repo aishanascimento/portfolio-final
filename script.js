@@ -26,6 +26,38 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    const fraseDigitada = document.querySelector(".maquina-escrever p");
+    if (fraseDigitada) {
+        const textoOriginal = fraseDigitada.textContent.trim();
+        const telaPequena = window.matchMedia("(max-width: 768px)");
+        let timerDigitacao;
+
+        function iniciarDigitacao() {
+            clearInterval(timerDigitacao);
+
+            if (!telaPequena.matches) {
+                fraseDigitada.textContent = textoOriginal;
+                return;
+            }
+
+            fraseDigitada.innerHTML = '<span class="digitado"></span><span class="restante"></span>';
+            const digitado = fraseDigitada.querySelector(".digitado");
+            const restante = fraseDigitada.querySelector(".restante");
+            restante.textContent = textoOriginal;
+
+            let i = 0;
+            timerDigitacao = setInterval(() => {
+                i++;
+                digitado.textContent = textoOriginal.slice(0, i);
+                restante.textContent = textoOriginal.slice(i);
+                if (i >= textoOriginal.length) clearInterval(timerDigitacao);
+            }, 50);
+        }
+
+        iniciarDigitacao();
+        telaPequena.addEventListener("change", iniciarDigitacao);
+    }
+
     const filtroProjetos = document.querySelector("#filtro");
     const listaProjetos = document.querySelector("#lista-projetos");
     const contadorProjetos = document.querySelector("#contador");
