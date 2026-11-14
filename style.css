@@ -582,6 +582,10 @@ body.escuro .email-destaque {
     transition: all 0.3s;
 }
 
+.form-moderno textarea {
+    resize: none;
+}
+
 .form-moderno input:focus, .form-moderno select:focus, .form-moderno textarea:focus {
     outline: none;
     border-color: var(--primary);
@@ -644,9 +648,77 @@ body.escuro .email-destaque {
 }
 
 @media (max-width: 768px) {
-    .navbar { width: 90%; justify-content: center; flex-wrap: wrap; }
-    .nav-links { display: none; }
+    html { scroll-padding-top: 130px; }
+
+    .navbar {
+        width: 96%;
+        top: 10px;
+        padding: 8px;
+        border-radius: 28px;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 2px;
+    }
+    .navbar .logo { order: 1; font-size: 12px; padding: 6px 7px; }
+    .nav-links { display: contents; }
+    .nav-links a { order: 2; font-size: 12px; padding: 6px 7px; }
+    .btn-tema { order: 3; font-size: 18px; padding: 6px; }
+
+    .hero { padding: 130px 16px 20px; }
     .nome-gradiente { font-size: 2.5rem; }
+
+    .maquina-escrever p {
+        white-space: normal;
+        overflow: visible;
+        border-right: none;
+        animation: none;
+        max-width: 100%;
+        width: auto;
+        line-height: 1.6;
+    }
+    .maquina-escrever .digitado {
+        border-right: 2px solid var(--primary);
+        animation: piscar 0.75s step-end infinite;
+    }
+    .maquina-escrever .restante {
+        visibility: hidden;
+    }
+
+    .hero-botoes { flex-wrap: wrap; gap: 16px; }
+
+    .secao { padding: 50px 16px; }
+    .secao-cabecalho { margin-bottom: 30px; }
+    .secao-cabecalho h2 {
+        font-size: 24px;
+        flex-wrap: wrap;
+        justify-content: center;
+        text-align: center;
+    }
+
+    .sobre-conteudo { padding: 24px; font-size: 16px; text-align: left; }
+
+    .painel-controle {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 16px;
+    }
+    .filtro-container select { min-width: 0; width: 100%; }
+    .contador-texto { text-align: center; }
+
+    .cards { grid-template-columns: 1fr; gap: 20px; }
+    .card-conteudo { padding: 22px; }
+    .card-header h3 { font-size: 20px; }
+
+    .contato-container { padding: 20px; gap: 30px; }
+    .info-contato h3 { font-size: 24px; }
+    .email-destaque span { white-space: normal; overflow-wrap: anywhere; }
     .campos-linha { grid-template-columns: 1fr; }
-    .cards { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+    .hero-foto-container { width: 170px; height: 170px; }
+    .nome-gradiente { font-size: 2.1rem; }
+    .botao-glow { padding: 13px 24px; font-size: 15px; }
+    .contact-links a { flex: 1 1 100%; justify-content: center; }
 }
