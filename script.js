@@ -237,6 +237,20 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    const todosCamposFormulario = [campoNome, campoEmail, campoMotivo, campoAssunto, campoMensagem];
+    todosCamposFormulario.forEach((campo) => {
+        if (!campo) return;
+        campo.addEventListener("focus", () => {
+            if (statusContato) statusContato.textContent = "";
+        });
+        campo.addEventListener("input", () => {
+            if (statusContato) statusContato.textContent = "";
+        });
+        campo.addEventListener("change", () => {
+            if (statusContato) statusContato.textContent = "";
+        });
+    });
+
     formContato.addEventListener("submit", async (e) => {
         e.preventDefault();
         formEnviadoUmaVez = true;
