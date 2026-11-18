@@ -1,3 +1,10 @@
+/* ==========================================================
+   CORES DO SITE
+   Variáveis de cor usadas em todo o CSS. Para mudar uma cor
+   do site inteiro, basta mudar aqui.
+   ========================================================== */
+
+/* Tema claro, que é o padrão */
 :root {
     --bg-base: #fff0f5; 
     --bg-surface: #ffffff;
@@ -10,6 +17,7 @@
     --glow-color: rgba(255, 20, 147, 0.3);
 }
 
+/* Tema escuro: o JavaScript coloca a classe escuro no body e estas cores substituem as do tema claro */
 body.escuro {
     --bg-base: #09090b;
     --bg-surface: #18181b;
@@ -22,15 +30,23 @@ body.escuro {
     --glow-color: rgba(255, 105, 180, 0.4);
 }
 
+/* ==========================================================
+   BASE DA PÁGINA
+   Regras gerais que valem para o site todo
+   ========================================================== */
+
+/* Faz largura e altura contarem o espaço interno e a borda, o que facilita o cálculo do layout */
 * {
     box-sizing: border-box;
 }
 
+/* Rolagem suave ao clicar nos links do menu, e um espaço no topo para o menu fixo não cobrir o título */
 html {
     scroll-behavior: smooth;
     scroll-padding-top: 90px;
 }
 
+/* Fonte, cor de fundo e cor do texto da página. O overflow-x impede rolagem para o lado */
 body {
     font-family: 'Outfit', sans-serif;
     margin: 0;
@@ -40,6 +56,12 @@ body {
     overflow-x: hidden;
 }
 
+/* ==========================================================
+   FUNDO ANIMADO
+   Bolinhas translúcidas que sobem pela tela atrás do conteúdo
+   ========================================================== */
+
+/* Camada fixa que ocupa a tela toda, fica atrás de tudo e não recebe cliques */
 .bolhas-fundo {
     position: fixed;
     top: 0;
@@ -51,6 +73,7 @@ body {
     pointer-events: none;
 }
 
+/* Aparência comum das bolinhas: redondas, quase transparentes e com animação que repete sem parar */
 .bolhas-fundo span {
     position: absolute;
     bottom: -100px;
@@ -62,17 +85,25 @@ body {
     animation: voar 15s infinite ease-in-out;
 }
 
+/* Posição, tamanho e velocidade diferentes para cada uma das quatro bolinhas */
 .bolhas-fundo span:nth-child(1) { left: 10%; width: 80px; height: 80px; animation-duration: 20s; }
 .bolhas-fundo span:nth-child(2) { left: 30%; width: 30px; height: 30px; animation-duration: 12s; animation-delay: 2s; }
 .bolhas-fundo span:nth-child(3) { left: 60%; width: 120px; height: 120px; animation-duration: 25s; }
 .bolhas-fundo span:nth-child(4) { left: 80%; width: 60px; height: 60px; animation-duration: 18s; animation-delay: 5s; }
 
+/* Movimento das bolinhas: sobem, crescem um pouco e vão sumindo */
 @keyframes voar {
     0% { transform: translateY(0) scale(1); opacity: 0.05; }
     50% { opacity: 0.1; }
     100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
 }
 
+/* ==========================================================
+   MENU DE NAVEGAÇÃO
+   Barra fixa no topo, com efeito de vidro
+   ========================================================== */
+
+/* Barra arredondada fixa no topo e centralizada, com fundo de vidro desfocado */
 .navbar {
     position: fixed;
     top: 20px;
@@ -91,6 +122,7 @@ body {
     z-index: 1000;
 }
 
+/* Link Início, à esquerda do menu */
 .navbar .logo {
     color: var(--text-main);
     text-decoration: none;
@@ -101,16 +133,19 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Destaque ao passar o mouse no Início */
 .navbar .logo:hover {
     background: var(--glow-color);
     color: var(--primary);
 }
 
+/* Grupo com os links Sobre, Projetos, Habilidades e Contato, lado a lado */
 .nav-links {
     display: flex;
     gap: 10px;
 }
 
+/* Aparência de cada link do menu */
 .nav-links a {
     color: var(--text-main);
     text-decoration: none;
@@ -124,11 +159,13 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Destaque ao passar o mouse em um link do menu */
 .nav-links a:hover {
     background: var(--glow-color);
     color: var(--primary);
 }
 
+/* Botão redondo de alternar tema, com o ícone da lua ou do sol */
 .btn-tema {
     background: transparent;
     color: var(--text-main);
@@ -142,11 +179,18 @@ body {
     place-items: center;
 }
 
+/* Destaque ao passar o mouse no botão de tema */
 .btn-tema:hover {
     background: var(--glow-color);
     color: var(--primary);
 }
 
+/* ==========================================================
+   INÍCIO
+   Primeira tela: foto, nome, subtítulo e botões
+   ========================================================== */
+
+/* Ocupa a altura da tela e centraliza tudo. O espaço de cima evita que o menu fixo cubra o conteúdo */
 .hero {
     min-height: 100vh;
     display: flex;
@@ -158,6 +202,7 @@ body {
     position: relative;
 }
 
+/* Caixa quadrada que guarda a foto e o anel que pulsa em volta dela */
 .hero-foto-container {
     position: relative;
     width: 210px;
@@ -165,6 +210,7 @@ body {
     margin-bottom: 30px;
 }
 
+/* Anel colorido atrás da foto, um pouco maior que ela, que pulsa por animação */
 .anel-pulsante {
     position: absolute;
     top: -10px;
@@ -177,6 +223,7 @@ body {
     animation: pulsar 3s infinite;
 }
 
+/* Foto de perfil redonda, por cima do anel, com borda na cor do fundo */
 .foto-perfil {
     position: relative;
     width: 100%;
@@ -187,12 +234,14 @@ body {
     border: 4px solid var(--bg-base);
 }
 
+/* Movimento do anel: cresce um pouco, fica mais transparente e volta ao tamanho normal */
 @keyframes pulsar {
     0% { transform: scale(1); opacity: 0.8; }
     50% { transform: scale(1.1); opacity: 0.3; }
     100% { transform: scale(1); opacity: 0.8; }
 }
 
+/* Texto Olá, eu sou a, em letras maiúsculas e espaçadas */
 .saudacao {
     font-size: 18px;
     color: var(--text-muted);
@@ -202,6 +251,7 @@ body {
     text-transform: uppercase;
 }
 
+/* Nome com letras preenchidas por um gradiente que se move. O tamanho cresce junto com a tela dentro de um limite */
 .nome-gradiente {
     font-size: clamp(3rem, 8vw, 5rem);
     margin: 10px 0;
@@ -214,10 +264,12 @@ body {
     animation: brilho-gradiente 4s linear infinite;
 }
 
+/* Movimento do gradiente do nome, que desliza da esquerda para a direita */
 @keyframes brilho-gradiente {
     to { background-position: 200% center; }
 }
 
+/* Subtítulo com efeito de máquina de escrever: texto em uma linha só, cortado, que vai aparecendo pela animação, e um cursor piscando na borda direita */
 .maquina-escrever p {
     font-family: 'Fira Code', monospace;
     font-size: clamp(12px, 2.2vw, 15px);
@@ -230,15 +282,18 @@ body {
     max-width: fit-content;
 }
 
+/* Animação de digitação: a largura vai de zero até o total, em passos, como letras surgindo */
 @keyframes escrever {
     from { width: 0; }
     to { width: 100%; }
 }
+/* Animação do cursor: a borda direita liga e desliga */
 @keyframes piscar {
     from, to { border-color: transparent; }
     50% { border-color: var(--primary); }
 }
 
+/* Linha com o botão Ver Projetos e os ícones de redes, lado a lado */
 .hero-botoes {
     display: flex;
     align-items: center;
@@ -246,6 +301,7 @@ body {
     justify-content: center;
 }
 
+/* Botão principal rosa com brilho. É usado no Ver Projetos e no Enviar Mensagem */
 .botao-glow {
     background: linear-gradient(45deg, var(--primary), var(--primary-light));
     color: white !important;
@@ -264,11 +320,13 @@ body {
     gap: 8px;
 }
 
+/* Ao passar o mouse, o botão sobe um pouco e o brilho aumenta */
 .botao-glow:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 25px var(--glow-color);
 }
 
+/* Lista dos ícones de GitHub e LinkedIn, sem marcadores e lado a lado */
 .redes-sociais-hero {
     list-style: none;
     padding: 0;
@@ -277,17 +335,25 @@ body {
     gap: 15px;
 }
 
+/* Tamanho e cor dos ícones de redes */
 .redes-sociais-hero a {
     color: var(--text-main);
     font-size: 28px;
     transition: all 0.3s;
 }
 
+/* Ao passar o mouse, o ícone muda de cor, cresce e gira um pouco */
 .redes-sociais-hero a:hover {
     color: var(--primary);
     transform: scale(1.1) rotate(5deg);
 }
 
+/* ==========================================================
+   SEÇÕES EM GERAL
+   Estrutura comum de Sobre, Projetos, Habilidades e Contato
+   ========================================================== */
+
+/* Cada seção ocupa pelo menos a altura da tela, fica centralizada e tem largura máxima */
 .secao {
     max-width: 1000px;
     margin: 0 auto;
@@ -298,22 +364,26 @@ body {
     padding: 60px 20px;
 }
 
+/* Estado inicial da animação de entrada: a seção começa invisível e um pouco mais embaixo */
 .animar-scroll {
     opacity: 0;
     transform: translateY(40px);
     transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
+/* Quando a seção aparece na tela, o JavaScript coloca a classe visivel e ela sobe e fica visível */
 .animar-scroll.visivel {
     opacity: 1;
     transform: translateY(0);
 }
 
+/* Área do título de cada seção, centralizada */
 .secao-cabecalho {
     text-align: center;
     margin-bottom: 50px;
 }
 
+/* Título da seção, com o ícone ao lado do texto */
 .secao-cabecalho h2 {
     font-size: 32px;
     margin: 0;
@@ -323,10 +393,12 @@ body {
     color: var(--text-main);
 }
 
+/* Cor do ícone do título */
 .secao-cabecalho h2 i {
     color: var(--primary);
 }
 
+/* Linha rosa curta embaixo do título */
 .linha-decorativa {
     height: 4px;
     width: 60px;
@@ -335,6 +407,11 @@ body {
     border-radius: 4px;
 }
 
+/* ==========================================================
+   SOBRE MIM
+   ========================================================== */
+
+/* Cartão branco com o texto de apresentação, com texto justificado */
 .sobre-conteudo {
     background: var(--bg-surface);
     padding: 40px;
@@ -345,12 +422,18 @@ body {
     text-align: justify;
 }
 
+/* ==========================================================
+   HABILIDADES
+   ========================================================== */
+
+/* Grade de cartões que se ajusta sozinha: cabem quantas colunas de pelo menos 220 px a tela permitir */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
 }
 
+/* Cartão de uma categoria de habilidades */
 .skill-category {
     background-color: var(--bg-surface);
     padding: 25px;
@@ -359,11 +442,13 @@ body {
     transition: all 0.3s ease;
 }
 
+/* Ao passar o mouse, o cartão sobe um pouco e a borda fica rosa */
 .skill-category:hover {
     transform: translateY(-5px);
     border-color: var(--primary);
 }
 
+/* Nome da categoria, em rosa */
 .skill-category h3 {
     font-size: 18px;
     margin-top: 0;
@@ -371,18 +456,26 @@ body {
     color: var(--primary);
 }
 
+/* Lista de habilidades sem marcadores */
 .skill-category ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
+/* Cada habilidade, em cinza mais suave */
 .skill-category li {
     color: var(--text-muted);
     margin-bottom: 8px;
     font-size: 15px;
 }
 
+/* ==========================================================
+   PROJETOS
+   Painel do filtro e cards dos projetos
+   ========================================================== */
+
+/* Painel com o filtro à esquerda e o contador à direita */
 .painel-controle {
     background: var(--bg-surface);
     padding: 20px;
@@ -394,6 +487,7 @@ body {
     margin-bottom: 30px;
 }
 
+/* Aparência da lista de seleção do filtro */
 .filtro-container select {
     padding: 12px 20px;
     border-radius: 12px;
@@ -405,17 +499,20 @@ body {
     font-weight: 600;
 }
 
+/* Texto do contador de projetos, também usado nos contadores de caracteres do formulário */
 .contador-texto {
     font-weight: 600;
     color: var(--text-muted);
 }
 
+/* Grade dos cards: colunas de pelo menos 350 px que se ajustam à largura da tela */
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 30px;
 }
 
+/* Card de um projeto: caixa arredondada em coluna */
 .card.projeto {
     position: relative;
     border-radius: 24px;
@@ -425,6 +522,7 @@ body {
     flex-direction: column;
 }
 
+/* Borda colorida que fica atrás do card e só aparece ao passar o mouse */
 .card-borda-glow {
     position: absolute;
     top: -2px; left: -2px; right: -2px; bottom: -2px;
@@ -435,10 +533,12 @@ body {
     transition: opacity 0.4s ease;
 }
 
+/* Ao passar o mouse no card, a borda colorida aparece */
 .card.projeto:hover .card-borda-glow {
     opacity: 1;
 }
 
+/* Parte de dentro do card, com o espaço interno e o conteúdo em coluna */
 .card-conteudo {
     padding: 30px;
     background: var(--bg-surface);
@@ -448,6 +548,7 @@ body {
     flex-direction: column;
 }
 
+/* Cabeçalho do card: título e etiqueta, um embaixo do outro */
 .card-header {
     display: flex;
     flex-direction: column;
@@ -456,11 +557,13 @@ body {
     margin-bottom: 20px;
 }
 
+/* Título do projeto */
 .card-header h3 {
     margin: 0;
     font-size: 22px;
 }
 
+/* Etiqueta com a categoria do projeto, em letras maiúsculas */
 .badge {
     padding: 4px 12px;
     border-radius: 20px;
@@ -469,9 +572,11 @@ body {
     text-transform: uppercase;
     color: white;
 }
+/* Cor da etiqueta de cada categoria: rosa para Java e roxo para web */
 .badge.java { background: var(--primary); }
 .badge.web { background: #8b5cf6; }
 
+/* Texto de descrição do projeto. O flex-grow empurra o link Repositório para o fim do card */
 .projeto-resumo {
     color: var(--text-muted);
     font-size: 15px;
@@ -479,12 +584,14 @@ body {
     flex-grow: 1;
 }
 
+/* Área do link Repositório, no fim do card */
 .card-acoes {
     display: flex;
     justify-content: flex-start;
     align-items: center;
 }
 
+/* Link Repositório, em rosa e com a seta ao lado */
 .botao-link {
     display: inline-flex;
     align-items: center;
@@ -496,10 +603,17 @@ body {
     transition: color 0.3s;
 }
 
+/* Cor mais clara ao passar o mouse no link */
 .botao-link:hover {
     color: var(--primary-light);
 }
 
+/* ==========================================================
+   CONTATO
+   Informações à esquerda e formulário à direita
+   ========================================================== */
+
+/* Cartão grande dividido em duas colunas, uma menor para as informações e outra maior para o formulário */
 .contato-container {
     display: grid;
     grid-template-columns: 1fr 1.6fr;
@@ -512,18 +626,21 @@ body {
     align-items: start;
 }
 
+/* Título Vamos conversar */
 .info-contato h3 {
     font-size: 28px;
     margin: 0 0 15px;
     color: var(--text-main);
 }
 
+/* Texto de convite abaixo do título */
 .info-contato p {
     color: var(--text-muted);
     margin-bottom: 25px;
     font-size: 16px;
 }
 
+/* Caixa de destaque com o e-mail. Se o e-mail for maior que a caixa, aparece uma rolagem interna */
 .email-destaque {
     display: inline-flex;
     align-items: center;
@@ -539,10 +656,12 @@ body {
     overflow-x: auto;
 }
 
+/* Mantém o e-mail em uma linha só no computador */
 .email-destaque span {
     white-space: nowrap;
 }
 
+/* Cores da caixa do e-mail no tema escuro */
 body.escuro .email-destaque {
     background: rgba(255, 105, 180, 0.12);
     color: #ffb6c1;
@@ -550,18 +669,21 @@ body.escuro .email-destaque {
     box-shadow: 0 4px 20px rgba(255, 20, 147, 0.15);
 }
 
+/* Formulário: campos um embaixo do outro, com espaço entre eles */
 .form-moderno {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
 
+/* Linha com dois campos lado a lado, como Nome e E-mail */
 .campos-linha {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
 }
 
+/* Rótulo acima de cada campo */
 .form-moderno label {
     display: block;
     font-size: 14px;
@@ -570,6 +692,7 @@ body.escuro .email-destaque {
     color: var(--text-main);
 }
 
+/* Aparência comum dos campos de texto, da lista de motivo e da caixa de mensagem */
 .form-moderno input, .form-moderno select, .form-moderno textarea {
     width: 100%;
     padding: 14px 18px;
@@ -582,24 +705,30 @@ body.escuro .email-destaque {
     transition: all 0.3s;
 }
 
+/* Impede que a caixa de mensagem seja redimensionada com o mouse */
 .form-moderno textarea {
     resize: none;
 }
 
+/* Campo em foco, quando o visitante clica ou navega nele pelo teclado: borda rosa e um brilho em volta */
 .form-moderno input:focus, .form-moderno select:focus, .form-moderno textarea:focus {
     outline: none;
     border-color: var(--primary);
     box-shadow: 0 0 0 4px var(--glow-color);
 }
 
+/* Botão Enviar Mensagem ocupando a largura toda do formulário */
 .full-width {
     width: 100%;
     margin-top: 10px;
 }
 
+/* Mensagem de erro embaixo de cada campo, em vermelho. A altura mínima evita que o formulário pule quando o erro aparece */
 .mensagem-erro { color: #ef4444; font-size: 12px; min-height: 15px; display: block; margin-top: 5px; }
+/* Aviso geral de erros no topo do formulário, com fundo vermelho claro */
 .resumo-erros { background: rgba(239,68,68,0.1); border: 1px solid #ef4444; padding: 15px; border-radius: 12px; color: #ef4444; }
 
+/* Linha com os botões GitHub e LinkedIn da coluna de contato, que quebram de linha se faltar espaço */
 .contact-links {
     display: flex;
     gap: 12px;
@@ -607,6 +736,7 @@ body.escuro .email-destaque {
     margin-top: 25px;
 }
 
+/* Aparência de cada botão de rede social */
 .contact-links a {
     padding: 12px 20px;
     background-color: var(--bg-base);
@@ -622,12 +752,18 @@ body.escuro .email-destaque {
     transition: all 0.3s;
 }
 
+/* Ao passar o mouse, o botão sobe um pouco e fica rosa */
 .contact-links a:hover {
     border-color: var(--primary);
     color: var(--primary);
     transform: translateY(-2px);
 }
 
+/* ==========================================================
+   RODAPÉ
+   ========================================================== */
+
+/* Rodapé com uma linha em cima, texto centralizado e espaço antes dele */
 .rodape {
     border-top: 1px solid var(--border-color);
     padding: 40px 20px;
@@ -635,21 +771,36 @@ body.escuro .email-destaque {
     margin-top: 80px;
 }
 
+/* Nome em destaque no rodapé */
 .brand {
     font-size: 20px;
     font-weight: 800;
     margin: 0 0 10px;
 }
 
+/* ==========================================================
+   CLASSE DO FILTRO
+   ========================================================== */
+
+/* Esconde o card que não pertence à categoria escolhida. O JavaScript coloca e tira esta classe */
 .oculto { display: none !important; }
 
+/* ==========================================================
+   RESPONSIVIDADE
+   Ajustes para telas menores
+   ========================================================== */
+
+/* Telas até 900 px: o contato passa a ter uma coluna só, com informações em cima e formulário embaixo */
 @media (max-width: 900px) {
     .contato-container { grid-template-columns: 1fr; padding: 30px; }
 }
 
+/* Telas até 768 px, como celulares e tablets pequenos */
 @media (max-width: 768px) {
+    /* Espaço maior no topo ao clicar nos links, porque o menu fica mais alto quando quebra de linha */
     html { scroll-padding-top: 130px; }
 
+    /* Menu mais largo e com permissão para quebrar de linha, com espaços menores */
     .navbar {
         width: 96%;
         top: 10px;
@@ -659,14 +810,17 @@ body.escuro .email-destaque {
         flex-wrap: wrap;
         gap: 2px;
     }
+    /* Ordem do menu no celular: Início primeiro, depois os links, depois o botão de tema. O display contents faz os links entrarem direto na quebra de linha do menu */
     .navbar .logo { order: 1; font-size: 12px; padding: 6px 7px; }
     .nav-links { display: contents; }
     .nav-links a { order: 2; font-size: 12px; padding: 6px 7px; }
     .btn-tema { order: 3; font-size: 18px; padding: 6px; }
 
+    /* Início e nome com espaços e tamanho de letra menores. O espaço de cima é maior por causa do menu mais alto */
     .hero { padding: 130px 16px 20px; }
     .nome-gradiente { font-size: 2.5rem; }
 
+    /* Subtítulo no celular: desliga a animação do CSS e deixa o texto quebrar de linha. O efeito de digitação passa a ser feito pelo JavaScript */
     .maquina-escrever p {
         white-space: normal;
         overflow: visible;
@@ -676,16 +830,20 @@ body.escuro .email-destaque {
         width: auto;
         line-height: 1.6;
     }
+    /* Parte já digitada pelo JavaScript, com o cursor piscando no fim */
     .maquina-escrever .digitado {
         border-right: 2px solid var(--primary);
         animation: piscar 0.75s step-end infinite;
     }
+    /* Parte ainda não digitada: fica invisível mas ocupa o espaço, para o texto não pular de linha */
     .maquina-escrever .restante {
         visibility: hidden;
     }
 
+    /* Botões do início podem quebrar de linha */
     .hero-botoes { flex-wrap: wrap; gap: 16px; }
 
+    /* Seções e títulos com espaços e letras menores */
     .secao { padding: 50px 16px; }
     .secao-cabecalho { margin-bottom: 30px; }
     .secao-cabecalho h2 {
@@ -695,8 +853,10 @@ body.escuro .email-destaque {
         text-align: center;
     }
 
+    /* Sobre mim com menos espaço e texto alinhado à esquerda, que lê melhor em tela estreita */
     .sobre-conteudo { padding: 24px; font-size: 16px; text-align: left; }
 
+    /* Painel do filtro vira coluna: filtro em cima e contador embaixo */
     .painel-controle {
         flex-direction: column;
         align-items: stretch;
@@ -706,19 +866,24 @@ body.escuro .email-destaque {
     .filtro-container select { min-width: 0; width: 100%; }
     .contador-texto { text-align: center; }
 
+    /* Cards de projeto em uma coluna só */
     .cards { grid-template-columns: 1fr; gap: 20px; }
     .card-conteudo { padding: 22px; }
     .card-header h3 { font-size: 20px; }
 
+    /* Contato com menos espaço. O e-mail pode quebrar de linha em qualquer ponto para não estourar a caixa. Os campos do formulário ficam um embaixo do outro */
     .contato-container { padding: 20px; gap: 30px; }
     .info-contato h3 { font-size: 24px; }
     .email-destaque span { white-space: normal; overflow-wrap: anywhere; }
     .campos-linha { grid-template-columns: 1fr; }
 }
 
+/* Telas até 480 px, celulares bem pequenos */
 @media (max-width: 480px) {
+    /* Foto, nome e botão ficam menores */
     .hero-foto-container { width: 170px; height: 170px; }
     .nome-gradiente { font-size: 2.1rem; }
     .botao-glow { padding: 13px 24px; font-size: 15px; }
+    /* Botões GitHub e LinkedIn ocupam a largura toda, um embaixo do outro */
     .contact-links a { flex: 1 1 100%; justify-content: center; }
 }
