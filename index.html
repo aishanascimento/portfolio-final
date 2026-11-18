@@ -1,15 +1,22 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- CABEÇALHO TÉCNICO: configurações da página que o visitante não vê -->
     <meta charset="UTF-8">
+    <!-- Faz a página se ajustar à largura da tela, essencial para o celular -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título que aparece na aba do navegador -->
     <title>Aisha Ximena | Portfólio</title>
+    <!-- Liga o arquivo de estilos próprio do site -->
     <link rel="stylesheet" href="style.css">
+    <!-- Biblioteca de ícones Font Awesome, usada nos ícones do GitHub, LinkedIn e setas -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Biblioteca de ícones Phosphor, usada nos ícones da lua, usuário, código e envelope -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.0.3/src/regular/style.css">
 </head>
 <body>
 
+    <!-- FUNDO ANIMADO: quatro bolinhas decorativas que sobem pela tela, controladas pelo CSS -->
     <div class="bolhas-fundo">
         <span></span>
         <span></span>
@@ -17,27 +24,35 @@
         <span></span>
     </div>
 
+    <!-- MENU DE NAVEGAÇÃO: barra fixa no topo com links para cada seção e o botão de tema -->
     <nav class="navbar">
+        <!-- Link de início, leva ao topo da página -->
         <a href="#" class="logo">Início</a>
+        <!-- Links que rolam a página até cada seção, pelo id da seção -->
         <div class="nav-links">
             <a href="#sobre">Sobre</a>
             <a href="#projetos">Projetos</a>
             <a href="#habilidades">Habilidades</a>
             <a href="#contato">Contato</a>
         </div>
+        <!-- Botão que alterna entre tema claro e escuro, tratado pelo JavaScript; o aria-pressed informa o estado -->
         <button id="tema" class="btn-tema" aria-label="Alternar Tema" aria-pressed="false"><i class="ph ph-moon"></i></button>
     </nav>
 
+    <!-- INÍCIO: primeira tela do site, com foto, nome, subtítulo e botões -->
     <header class="hero">
+        <!-- Foto de perfil com um anel pulsante em volta, como moldura animada -->
         <div class="hero-foto-container">
             <div class="anel-pulsante"></div>
             <img src="minhafoto.jpg" alt="Aisha Ximena" class="foto-perfil">
         </div>
+        <!-- Saudação, nome com gradiente colorido e subtítulo com efeito de máquina de escrever -->
         <p class="saudacao">Olá, eu sou a</p>
         <h1 class="nome-gradiente">Aisha Ximena</h1>
         <div class="maquina-escrever">
             <p>Estudante de Engenharia de Software & Técnica em Desenvolvimento de Sistemas</p>
         </div>
+        <!-- Botão que leva aos projetos e ícones de GitHub e LinkedIn em lista -->
         <div class="hero-botoes">
             <a href="#projetos" class="botao-glow">Ver Projetos <i class="ph ph-arrow-down"></i></a>
             <ul class="redes-sociais-hero">
@@ -47,22 +62,28 @@
         </div>
     </header>
 
+    <!-- SOBRE MIM: texto de apresentação com formação e objetivo profissional -->
     <section id="sobre" class="secao animar-scroll">
+        <!-- Título da seção com ícone e linha decorativa embaixo -->
         <div class="secao-cabecalho">
             <h2><i class="ph ph-user"></i> Sobre Mim</h2>
             <div class="linha-decorativa"></div>
         </div>
+        <!-- Cartão com o texto sobre a trajetória -->
         <div class="sobre-conteudo">
             <p>Estudante de Engenharia de Software na Universidade Católica do Salvador (UCSal), com formação técnica em Desenvolvimento de Sistemas pelo SENAI Bahia e qualificação pelo curso Profissional Digital. Busco atuar na criação de softwares e aplicações eficientes, unindo minha bagagem acadêmica e prática ao desenvolvimento de sistemas robustos.</p>
         </div>
     </section>
 
+    <!-- PROJETOS: lista de cards com filtro por categoria e contador -->
     <section id="projetos" class="secao animar-scroll">
+        <!-- Título da seção -->
         <div class="secao-cabecalho">
             <h2><i class="ph ph-code"></i> Projetos em Destaque</h2>
             <div class="linha-decorativa"></div>
         </div>
 
+        <!-- Painel de controle: lista para filtrar os projetos e texto com a quantidade exibida, atualizado pelo JavaScript -->
         <div class="painel-controle">
             <div class="filtro-container">
                 <select id="filtro" aria-label="Filtrar projetos">
@@ -74,7 +95,9 @@
             <div class="contador-texto" id="contador">Exibindo projetos.</div>
         </div>
 
+        <!-- Lista de cards. O data-categoria de cada card é o que o filtro do JavaScript compara -->
         <div class="cards" id="lista-projetos">
+            <!-- Card do projeto: Portfólio Pessoal, categoria web -->
             <div class="card projeto" data-categoria="web">
                 <div class="card-borda-glow"></div>
                 <div class="card-conteudo">
@@ -89,6 +112,7 @@
                 </div>
             </div>
 
+            <!-- Card do projeto: Sistema de Controle de Estoque, categoria java -->
             <div class="card projeto" data-categoria="java">
                 <div class="card-borda-glow"></div>
                 <div class="card-conteudo">
@@ -103,6 +127,7 @@
                 </div>
             </div>
 
+            <!-- Card do projeto: Sistema de Cotas de Impressão, categoria java -->
             <div class="card projeto" data-categoria="java">
                 <div class="card-borda-glow"></div>
                 <div class="card-conteudo">
@@ -117,6 +142,7 @@
                 </div>
             </div>
 
+            <!-- Card do projeto: Sistema de Gestão de Cinema, categoria java -->
             <div class="card projeto" data-categoria="java">
                 <div class="card-borda-glow"></div>
                 <div class="card-conteudo">
@@ -131,6 +157,7 @@
                 </div>
             </div>
 
+            <!-- Card do projeto: Controle de TVs, categoria java -->
             <div class="card projeto" data-categoria="java">
                 <div class="card-borda-glow"></div>
                 <div class="card-conteudo">
@@ -145,6 +172,7 @@
                 </div>
             </div>
 
+            <!-- Card do projeto: Logística iExpress, categoria java -->
             <div class="card projeto" data-categoria="java">
                 <div class="card-borda-glow"></div>
                 <div class="card-conteudo">
@@ -159,6 +187,7 @@
                 </div>
             </div>
 
+            <!-- Card do projeto: Conta Bancária, categoria java -->
             <div class="card projeto" data-categoria="java">
                 <div class="card-borda-glow"></div>
                 <div class="card-conteudo">
@@ -175,12 +204,16 @@
         </div>
     </section>
 
+    <!-- HABILIDADES: quatro cartões agrupando linguagens, web, conceitos e ferramentas -->
     <section id="habilidades" class="secao animar-scroll">
+        <!-- Título da seção -->
         <div class="secao-cabecalho">
             <h2><i class="ph ph-cpu"></i> Habilidades e Competências</h2>
             <div class="linha-decorativa"></div>
         </div>
+        <!-- Grade de categorias de habilidades -->
         <div class="skills-grid">
+            <!-- Categoria: linguagens de programação -->
             <div class="skill-category">
                 <h3>Linguagens</h3>
                 <ul>
@@ -188,12 +221,14 @@
                     <li>Python</li>
                 </ul>
             </div>
+            <!-- Categoria: desenvolvimento web -->
             <div class="skill-category">
                 <h3>Desenvolvimento Web</h3>
                 <ul>
                     <li>HTML, CSS, JavaScript (Iniciante / Intermediário)</li>
                 </ul>
             </div>
+            <!-- Categoria: conceitos de programação -->
             <div class="skill-category">
                 <h3>Conceitos</h3>
                 <ul>
@@ -201,6 +236,7 @@
                     <li>Clean Code & Lógica</li>
                 </ul>
             </div>
+            <!-- Categoria: ferramentas -->
             <div class="skill-category">
                 <h3>Ferramentas</h3>
                 <ul>
@@ -211,12 +247,15 @@
         </div>
     </section>
 
+    <!-- CONTATO: canais reais de contato à esquerda e formulário de mensagem à direita -->
     <section id="contato" class="secao animar-scroll">
+        <!-- Título da seção -->
         <div class="secao-cabecalho">
             <h2><i class="ph ph-envelope"></i> Contato</h2>
             <div class="linha-decorativa"></div>
         </div>
         <div class="contato-container">
+            <!-- Coluna da esquerda: e-mail real e links para as redes -->
             <div class="info-contato">
                 <h3>Vamos conversar?</h3>
                 <p>Entre em contato comigo através das minhas redes ou envie uma mensagem diretamente pelo formulário:</p>
@@ -228,8 +267,11 @@
                     <a href="https://www.linkedin.com/in/aisha-ximena-santiago-nascimento-8756a5304/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
                 </div>
             </div>
+            <!-- Formulário de contato. O novalidate desliga a validação do navegador, e a validação é feita pelo JavaScript. O envio vai para o serviço Formspree -->
             <form id="form-contato" class="form-moderno" action="https://formspree.io/f/xoedjklw" method="POST" novalidate>
+                <!-- Aviso geral que aparece no topo quando há campos com erro -->
                 <div class="resumo-erros" id="resumo-erros" hidden>Corrija os campos destacados.</div>
+                <!-- Linha com Nome e E-mail. Cada campo tem um espaço para a mensagem de erro -->
                 <div class="campos-linha">
                     <div>
                         <label for="contato-nome">Seu Nome</label>
@@ -245,6 +287,7 @@
                         <span class="mensagem-erro" id="erro-email"></span>
                     </div>
                 </div>
+                <!-- Linha com Motivo do contato e Assunto. O Assunto começa escondido e só aparece quando o motivo é Outro -->
                 <div class="campos-linha">
                     <div>
                         <label for="contato-motivo">Motivo do Contato</label>
@@ -265,6 +308,7 @@
                         </div>
                     </div>
                 </div>
+                <!-- Campo de mensagem com a faixa de caracteres permitida -->
                 <div>
                     <label for="contato-mensagem">Mensagem</label>
                     <textarea id="contato-mensagem" name="mensagem" rows="4" placeholder="Escreva sua mensagem aqui..."></textarea>
@@ -272,19 +316,23 @@
                         <span class="mensagem-erro" id="erro-mensagem"></span>
                        <span class="contador-texto" id="contador-mensagem">30 a 1000 caracteres</span>
                 </div>
+                <!-- Botão de enviar. O JavaScript desativa o botão enquanto o envio está em andamento -->
                 <button type="submit" id="btn-enviar-contato" class="botao-glow full-width">
                     Enviar Mensagem <i class="ph ph-paper-plane-right"></i>
                 </button>
+                <!-- Texto de status do envio: processando, sucesso ou falha -->
                 <span id="contato-status" style="text-align: center; font-weight: 600;"></span>
             </form>
         </div>
     </section>
 
+    <!-- RODAPÉ: nome e direitos autorais -->
     <footer class="rodape">
         <p class="brand">Aisha Ximena</p>
         <p>© 2026 Aisha Ximena Santiago Nascimento. Todos os direitos reservados.</p>
     </footer>
 
+    <!-- Liga o arquivo de comportamento do site: tema, filtro, digitação e formulário -->
     <script src="script.js"></script>
 </body>
 </html>
